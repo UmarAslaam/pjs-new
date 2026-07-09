@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+
+
+
+
+<script>
+    let user = {
+        name : 'user1',
+        email : 'user@gmail.com',
+        password : 123678,
+        add : 'karachi',
+    }
+
+    let setUser = JSON.stringify(user)
+    localStorage.setItem("users", setUser)
+
+   
+    let getUser = JSON.parse(localStorage.getItem("users"));
+    console.log(getUser)
+    
+    
+              // LocalStorage Methods 
+
+    // 1. parse (JSON to JS)
+    // 2. stringify (JS to JSON)
+    // 3. LocalStorage.clear()
+    // 4. localStorage.removeItem('users')
+
+
+    
+ 
+
+
+</script>
+</html>

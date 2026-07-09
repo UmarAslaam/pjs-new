@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Movie Search</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+   <style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
+    url("https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+.hero{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:30px;
+}
+
+.search-container{
+    width:700px;
+    max-width:95%;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:30px;
+    padding:40px;
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.5),
+    0 0 40px rgba(255,0,70,.15);
+}
+
+.search-container h1{
+    color:#fff;
+    font-size:48px;
+    text-align:center;
+    margin-bottom:10px;
+    letter-spacing:2px;
+}
+
+.search-container p{
+    color:#cfcfcf;
+    text-align:center;
+    margin-bottom:35px;
+    font-size:18px;
+}
+
+.search-wrapper{
+    position:relative;
+}
+
+#searchInput{
+    width:100%;
+    height:65px;
+    border:none;
+    outline:none;
+    border-radius:50px;
+    padding:0 70px 0 25px;
+    font-size:20px;
+    background:white;
+    transition:.4s;
+}
+
+#searchInput:focus{
+    box-shadow:
+    0 0 10px #ff004f,
+    0 0 30px #ff004f;
+}
+
+.icon{
+    position:absolute;
+    right:25px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:25px;
+}
+
+#resultBox{
+    list-style:none;
+    margin-top:30px;
+    max-height:420px;
+    overflow-y:auto;
+}
+
+#resultBox::-webkit-scrollbar{
+    width:8px;
+}
+
+#resultBox::-webkit-scrollbar-thumb{
+    background:#ff004f;
+    border-radius:20px;
+}
+
+#resultBox li{
+    display:flex;
+    align-items:center;
+    justify-content: flex-start;
+    gap: 15px;
+    color:white;
+    background:rgba(255,255,255,.12);
+    margin-bottom:15px;
+    padding:18px 22px;
+    border-radius:18px;
+    transition:.35s;
+    cursor:pointer;
+    border-left:5px solid transparent;
+    font-size:18px;
+}
+
+#resultBox li::before{
+    margin-right:15px;
+}
+
+#resultBox li:hover{
+    transform:translateX(10px) scale(1.03);
+    background:#ff004f;
+    border-left:5px solid white;
+    box-shadow:0 15px 30px rgba(255,0,79,.45);
+}
+
+@media(max-width:768px){
+.search-container{
+    padding:25px;
+}
+
+.search-container h1{
+    font-size:35px;
+}
+
+#searchInput{
+    font-size:18px;
+}
+}
+   </style>
+
+</head>
+
+<body>
+
+   <main class="hero">
+    <div class="search-container">
+        <h1>🎬 Movie Search</h1>
+        <p>Find your favourite movies instantly</p>
+        <div class="search-wrapper">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search movies..."
+                autocomplete="off">
+
+            <span class="icon">🔍</span>
+        </div>
+        <ul id="resultBox"></ul>
+
+    </div>
+
+   </main>
+
+    <script src="search.js"></script>
+
+</body>
+
+</html>
