@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Data</title>
+</head>
+<body>
+    <ul id="productList"></ul>
+
+
+    <script>
+        let productList = document.getElementById('productList');
+
+      async function gateData() {
+            let data = await  fetch('https://dummyjson.com/products');
+            let result = data.json();
+            let products = result.products
+            console.log(products)
+
+            products.forEach((prd) => {
+    
+                productList.innerHTML += `<li>${prd.title} at $ ${prd.price}</li>`
+            });
+            
+        }
+        gateData();
+    </script>
+</body>
+</html>
