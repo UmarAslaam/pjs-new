@@ -1,370 +1,59 @@
-const products = [
-  {
-    id: 1,
-    title: "Wireless Bluetooth Headphones",
-    description: "Noise cancelling over-ear headphones with 40 hours battery life.",
-    category: "electronics",
-    price: 120,
-    discountPercentage: 10,
-    rating: 4.7,
-    stock: 45,
-    brand: "SoundMax",
-    thumbnail: "https://picsum.photos/200?1"
-  },
-  {
-    id: 2,
-    title: "Gaming Mouse",
-    description: "RGB gaming mouse with adjustable DPI.",
-    category: "electronics",
-    price: 35,
-    discountPercentage: 12,
-    rating: 4.5,
-    stock: 80,
-    brand: "HyperClick",
-    thumbnail: "https://picsum.photos/200?2"
-  },
-  {
-    id: 3,
-    title: "Mechanical Keyboard",
-    description: "RGB mechanical keyboard with blue switches.",
-    category: "electronics",
-    price: 75,
-    discountPercentage: 15,
-    rating: 4.8,
-    stock: 30,
-    brand: "KeyMaster",
-    thumbnail: "https://picsum.photos/200?3"
-  },
-  {
-    id: 4,
-    title: "Smart Watch",
-    description: "Fitness tracking smartwatch with heart rate monitor.",
-    category: "wearables",
-    price: 150,
-    discountPercentage: 18,
-    rating: 4.6,
-    stock: 25,
-    brand: "FitPulse",
-    thumbnail: "https://picsum.photos/200?4"
-  },
-  {
-    id: 5,
-    title: "Running Shoes",
-    description: "Lightweight running shoes for everyday training.",
-    category: "fashion",
-    price: 90,
-    discountPercentage: 20,
-    rating: 4.4,
-    stock: 60,
-    brand: "RunPro",
-    thumbnail: "https://picsum.photos/200?5"
-  },
-  {
-    id: 6,
-    title: "Leather Wallet",
-    description: "Premium genuine leather wallet.",
-    category: "fashion",
-    price: 40,
-    discountPercentage: 8,
-    rating: 4.3,
-    stock: 70,
-    brand: "UrbanStyle",
-    thumbnail: "https://picsum.photos/200?6"
-  },
-  {
-    id: 7,
-    title: "Backpack",
-    description: "Water-resistant laptop backpack.",
-    category: "bags",
-    price: 55,
-    discountPercentage: 14,
-    rating: 4.6,
-    stock: 40,
-    brand: "CarryGo",
-    thumbnail: "https://picsum.photos/200?7"
-  },
-  {
-    id: 8,
-    title: "Coffee Maker",
-    description: "Automatic coffee maker with timer.",
-    category: "home",
-    price: 110,
-    discountPercentage: 16,
-    rating: 4.5,
-    stock: 18,
-    brand: "HomeBrew",
-    thumbnail: "https://picsum.photos/200?8"
-  },
-  {
-    id: 9,
-    title: "Air Fryer",
-    description: "Healthy cooking with rapid air technology.",
-    category: "home",
-    price: 130,
-    discountPercentage: 17,
-    rating: 4.8,
-    stock: 22,
-    brand: "KitchenPro",
-    thumbnail: "https://picsum.photos/200?9"
-  },
-  {
-    id: 10,
-    title: "Office Chair",
-    description: "Ergonomic office chair with lumbar support.",
-    category: "furniture",
-    price: 220,
-    discountPercentage: 11,
-    rating: 4.7,
-    stock: 15,
-    brand: "ComfortSeat",
-    thumbnail: "https://picsum.photos/200?10"
-  },
-  {
-    id: 11,
-    title: "Study Table",
-    description: "Wooden study table with storage drawer.",
-    category: "furniture",
-    price: 180,
-    discountPercentage: 13,
-    rating: 4.4,
-    stock: 20,
-    brand: "WoodCraft",
-    thumbnail: "https://picsum.photos/200?11"
-  },
-  {
-    id: 12,
-    title: "LED Desk Lamp",
-    description: "Adjustable LED lamp with USB charging port.",
-    category: "home",
-    price: 28,
-    discountPercentage: 9,
-    rating: 4.2,
-    stock: 75,
-    brand: "BrightLite",
-    thumbnail: "https://picsum.photos/200?12"
-  },
-  {
-    id: 13,
-    title: "Bluetooth Speaker",
-    description: "Portable waterproof Bluetooth speaker.",
-    category: "electronics",
-    price: 60,
-    discountPercentage: 10,
-    rating: 4.5,
-    stock: 50,
-    brand: "BoomBox",
-    thumbnail: "https://picsum.photos/200?13"
-  },
-  {
-    id: 14,
-    title: "Power Bank",
-    description: "20000mAh fast charging power bank.",
-    category: "electronics",
-    price: 45,
-    discountPercentage: 15,
-    rating: 4.6,
-    stock: 90,
-    brand: "ChargeMax",
-    thumbnail: "https://picsum.photos/200?14"
-  },
-  {
-    id: 15,
-    title: "Yoga Mat",
-    description: "Non-slip exercise yoga mat.",
-    category: "sports",
-    price: 30,
-    discountPercentage: 7,
-    rating: 4.4,
-    stock: 65,
-    brand: "FitFlex",
-    thumbnail: "https://picsum.photos/200?15"
-  },
-  {
-    id: 16,
-    title: "Dumbbell Set",
-    description: "Adjustable dumbbell set for home workouts.",
-    category: "sports",
-    price: 140,
-    discountPercentage: 12,
-    rating: 4.8,
-    stock: 12,
-    brand: "StrongLift",
-    thumbnail: "https://picsum.photos/200?16"
-  },
-  {
-    id: 17,
-    title: "Football",
-    description: "Professional size football.",
-    category: "sports",
-    price: 25,
-    discountPercentage: 6,
-    rating: 4.3,
-    stock: 85,
-    brand: "KickStar",
-    thumbnail: "https://picsum.photos/200?17"
-  },
-  {
-    id: 18,
-    title: "Water Bottle",
-    description: "Stainless steel insulated bottle.",
-    category: "sports",
-    price: 22,
-    discountPercentage: 10,
-    rating: 4.7,
-    stock: 100,
-    brand: "HydroGo",
-    thumbnail: "https://picsum.photos/200?18"
-  },
-  {
-    id: 19,
-    title: "Sunglasses",
-    description: "UV protected stylish sunglasses.",
-    category: "fashion",
-    price: 50,
-    discountPercentage: 18,
-    rating: 4.5,
-    stock: 55,
-    brand: "SunLook",
-    thumbnail: "https://picsum.photos/200?19"
-  },
-  {
-    id: 20,
-    title: "Perfume",
-    description: "Long-lasting luxury fragrance.",
-    category: "beauty",
-    price: 95,
-    discountPercentage: 14,
-    rating: 4.6,
-    stock: 35,
-    brand: "RoyalScents",
-    thumbnail: "https://picsum.photos/200?20"
-  },
-  {
-    id: 21,
-    title: "Face Wash",
-    description: "Deep cleansing face wash.",
-    category: "beauty",
-    price: 18,
-    discountPercentage: 5,
-    rating: 4.3,
-    stock: 120,
-    brand: "GlowCare",
-    thumbnail: "https://picsum.photos/200?21"
-  },
-  {
-    id: 22,
-    title: "Shampoo",
-    description: "Herbal shampoo for healthy hair.",
-    category: "beauty",
-    price: 16,
-    discountPercentage: 7,
-    rating: 4.4,
-    stock: 110,
-    brand: "NatureFresh",
-    thumbnail: "https://picsum.photos/200?22"
-  },
-  {
-    id: 23,
-    title: "Notebook",
-    description: "Hardcover notebook with 200 pages.",
-    category: "stationery",
-    price: 12,
-    discountPercentage: 5,
-    rating: 4.5,
-    stock: 200,
-    brand: "WriteOn",
-    thumbnail: "https://picsum.photos/200?23"
-  },
-  {
-    id: 24,
-    title: "Ball Pen Set",
-    description: "Pack of 10 smooth writing pens.",
-    category: "stationery",
-    price: 9,
-    discountPercentage: 8,
-    rating: 4.2,
-    stock: 250,
-    brand: "InkFlow",
-    thumbnail: "https://picsum.photos/200?24"
-  },
-  {
-    id: 25,
-    title: "Tablet",
-    description: "10-inch Android tablet for work and entertainment.",
-    category: "electronics",
-    price: 280,
-    discountPercentage: 10,
-    rating: 4.7,
-    stock: 18,
-    brand: "TechTab",
-    thumbnail: "https://picsum.photos/200?25"
-  },
-  {
-    id: 26,
-    title: "Monitor",
-    description: "27-inch Full HD IPS monitor.",
-    category: "electronics",
-    price: 240,
-    discountPercentage: 12,
-    rating: 4.8,
-    stock: 16,
-    brand: "ViewTech",
-    thumbnail: "https://picsum.photos/200?26"
-  },
-  {
-    id: 27,
-    title: "USB Flash Drive",
-    description: "128GB USB 3.0 flash drive.",
-    category: "electronics",
-    price: 20,
-    discountPercentage: 5,
-    rating: 4.4,
-    stock: 140,
-    brand: "DataSafe",
-    thumbnail: "https://picsum.photos/200?27"
-  },
-  {
-    id: 28,
-    title: "Electric Kettle",
-    description: "1.8L fast boiling electric kettle.",
-    category: "home",
-    price: 48,
-    discountPercentage: 13,
-    rating: 4.6,
-    stock: 45,
-    brand: "BoilFast",
-    thumbnail: "https://picsum.photos/200?28"
-  },
-  {
-    id: 29,
-    title: "Blanket",
-    description: "Soft microfiber winter blanket.",
-    category: "home",
-    price: 70,
-    discountPercentage: 18,
-    rating: 4.5,
-    stock: 38,
-    brand: "CozyHome",
-    thumbnail: "https://picsum.photos/200?29"
-  },
-  {
-    id: 30,
-    title: "Travel Suitcase",
-    description: "Lightweight hard-shell luggage suitcase.",
-    category: "travel",
-    price: 160,
-    discountPercentage: 15,
-    rating: 4.7,
-    stock: 28,
-    brand: "TravelPro",
-    thumbnail: "https://picsum.photos/200?30"
+let produclist = document.getElementById('productList');
+let searchInput = document.getElementById('searchInput');
+let searchBtn = document.getElementById('searchBtn');
+
+
+(async function() {
+  let data = await  fetch('https://dummyjson.com/products?limit=194');
+  let result = await data.json();
+  let products = await result.products;
+  console.log(products)
+
+  products.forEach((prd) => {
+    produclist.innerHTML += `
+     <div class="col-lg-4 my-3">
+        <div class="card" style="height: 28rem;">
+            <img src="${prd.thumbnail}" class="card-img-top" alt="..." height="200">
+            <div class="card-body">
+                <h5 class="card-title">${prd.title}</h5>
+                <p class="card-text">${prd.description}</p>
+                <a class="btn btn-primary">${prd.price}</a>
+               
+            </div>
+          </div>
+      </div>
+    `
+  });
+  function search() {
+    produclist.innerHTML = "";
+    let userSearchQuery = searchInput.value.toLowerCase();
+    let searchResult = products.filter((product)=>{
+      if (product.title.toLowerCase().includes(userSearchQuery) || product.description.toLowerCase().includes(userSearchQuery) || product.price === userSearchQuery ) {
+        return product;
+      }
+    })
+     console.log(searchResult)
+     if (searchResult.length>0) {
+      searchResult.forEach((prd)=>{
+            produclist.innerHTML += `
+            <div class="col-lg-4 my-3">
+                <div class="card" style="height: 28rem;">
+                    <img src="${prd.thumbnail}" class="card-img-top" alt="..." height="200">
+                    <div class="card-body">
+                        <h5 class="card-title">${prd.title}</h5>
+                        <p class="card-text">${prd.description}</p>
+                        <a class="btn btn-primary">${prd.price}</a>
+                      
+                    </div>
+                  </div>
+              </div>
+    `
+      }) 
+     }
+     else{
+            produclist.innerHTML += `<h1>No Products Found.</h1>`
+      
+     }
   }
-];
-
-let searchProducts = document.getElementById('SearchProducts');
-let resultBox = document.getElementById('resultBox');
-
-let lowerCaseProducts = products.map((product)=>{
-    return product.toLowerCase();
-})
-console.log(lowerCaseProducts)
+  searchBtn.addEventListener('click',search)
+}) ()
