@@ -20,8 +20,6 @@ toggle.addEventListener("click", () => {
 
 });
 
-
-
 function Register() {
     
 let username = document.getElementById('username').value;
