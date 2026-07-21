@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/4.22.0/tf.min.js" integrity="sha512-pLw8dUVrlqzbcwSDkXmF732uRzE8+VFKaTdoBYCqdvtK3q7wza1sQQQEMJP+jYOER4zU1MusZTT2bRzGVRDGZg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <script>
+        // Import TensorFlow.js First
+        const model = tf.sequential();
+
+        // Add a single dense layer
+        model.add(tf.layers.dense({ units : 1, inputShape: [1] }))
+
+        // compile the model
+        model.compile({
+            optimizer : 'sgd',
+            loss : 'meanSquaredError'
+        })
+
+        // Training data
+
+        const xs = tf.tensor1d([1,2,3,4,7,]) // input/features
+        const ys = tf.tensor1d([2,4,6,8,14]) // label/target
+
+
+        // Train the model
+        
+        async function train() {
+            await model.fit(xs,ys,{ epochs:500 });
+            const output = model.predict(tf.tensor1d([13]))
+            output.print()
+        }
+        train()
+    </script>
+</body>
+</html>
